@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaultplay - Admin Portal</title>
+<link rel="stylesheet" href="style.css">
+<script src="ADMIN-SIGN-IN-script.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="brand">▶ PRIVATE MEDIA PLAYER <span style="font-size: 0.6em; background: var(--accent); color: #101426; padding: 2px 8px; border-radius: 4px; vertical-align: middle; margin-left: 6px;">ADMIN</span></div>
+  <div class="muted">Management Console</div>
+</header>
+
+<main>
+  <div class="panel">
+    <h1>Administrator</h1>
+    <p class="muted">Sign in with an authorized administrator account to manage clients, access keys, and server vault storage.</p>
+
+    <form id="adminSignInForm">
+      <div class="field">
+        <label for="adminEmail">Admin Email</label>
+        <input id="adminEmail" type="email" required placeholder="admin@vaultplay.com">
+      </div>
+
+      <div class="field">
+        <label for="adminPassword">Admin Password</label>
+        <input id="adminPassword" type="password" minlength="6" required placeholder="••••••••">
+      </div>
+
+      <button type="submit" class="btn full">Authenticate & Send Admin OTP</button>
+    </form>
+
+    <p class="notice">
+      <strong>Restricted Access:</strong> Unauthorized access attempts are monitored and logged. Standard user credentials will not work on this portal.
+    </p>
+  </div>
+</main>
+</body>
+</html>

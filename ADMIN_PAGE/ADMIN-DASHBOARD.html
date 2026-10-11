@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaultplay - Admin Portal</title>
+<link rel="stylesheet" href="dashboard-style.css">
+<script src="ADMIN-DASHBOARD-script.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="brand">▶ Private Media Player <span style="font-size: 0.6em; background: var(--accent); color: #101426; padding: 2px 8px; border-radius: 4px; vertical-align: middle; margin-left: 6px;">ADMIN</span></div>
+  <div class="muted">Management Console</div>
+</header>
+
+<main class="dashboard-layout">
+  <!-- Admin Profile Panel -->
+  <div class="panel profile-panel">
+    <div class="profile-info">
+      <div class="avatar">⚡</div>
+      <div>
+        <h3 id="adminDisplayEmail">Loading Admin...</h3>
+        <span class="badge">System Administrator</span>
+      </div>
+    </div>
+    <button type="button" class="btn secondary" onclick="logoutAdmin()" style="width: auto;">Sign Out</button>
+  </div>
+
+  <!-- Dashboard Overview / Hub Cards -->
+  <div class="cards-grid">
+    <div class="panel card">
+      <h2>User Account Manager</h2>
+      <p class="muted">Manage client credentials and roles stored in local vault security files.</p>
+      <div class="stat-box">
+        <span class="stat-number" id="userCount">...</span>
+        <span class="stat-label">Total Accounts</span>
+      </div>
+      <a href="ADMIN-ACCOUNT-MANAGER.html" class="btn">Manage Accounts</a>
+    </div>
+
+    <div class="panel card">
+      <h2>Video Files Manager</h2>
+      <p class="muted">Upload and delete media stored in the server and shared with clients.</p>
+      <div class="stat-box">
+        <span class="stat-number" id="videoCount">...</span>
+        <span class="stat-label">Total Videos</span>
+      </div>
+      <a href="ADMIN-VIDEOFILE-MANAGER.html" class="btn">Manage Videos</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaultplay - Account Manager</title>
+<style>
+  :root {
+    --bg: #0c1018;
+    --panel: #141b27;
+    --panel2: #1b2635;
+    --text: #eef3fc;
+    --muted: #9aabc2;
+    --line: #2a3749;
+    --accent: #FFB733;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Arial, sans-serif; }
+  button, input { font: inherit; }
+  button { cursor: pointer; }
+  header { padding: 20px 6%; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-size: 22px; font-weight: bold; }
+  main { max-width: 900px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 20px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 25px; }
+  .field { margin: 0; }
+  label { display: block; margin-bottom: 7px; font-weight: bold; }
+  input { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--bg); color: var(--text); }
+  
+  /* Primary and Secondary Buttons */
+  .btn { padding: 12px 16px; border: 0; border-radius: 9px; background: var(--accent); color: #101426; font-weight: bold; width: 100%; text-decoration: none; display: inline-block; text-align: center; }
+  .btn.secondary { background: var(--panel2); color: var(--text); border: 1px solid var(--line); }
+  .btn.sm { padding: 6px 12px; font-size: 0.85em; width: auto; }
+  
+  /* Role Selector Toggle Buttons */
+  .role-toggle-group { display: flex; gap: 8px; }
+  .role-btn { flex: 1; padding: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--muted); border-radius: 8px; font-weight: bold; transition: 0.2s; }
+  .role-btn.active { background: var(--accent); color: #101426; border-color: var(--accent); }
+
+  .notice { background: var(--panel2); padding: 14px; border-radius: 10px; color: var(--muted); margin-top: 15px; }
+  .muted { color: var(--muted); }
+  .badge { font-size: 0.75em; background: var(--panel2); color: var(--accent); border: 1px solid var(--line); padding: 2px 8px; border-radius: 4px; display: inline-block; }
+
+  /* Grid Form & Table Styles */
+  .grid-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: end; margin-bottom: 20px; }
+  .table-container { overflow-x: auto; margin-top: 15px; }
+  table { width: 100%; border-collapse: collapse; text-align: left; }
+  th, td { padding: 12px; border-bottom: 1px solid var(--line); font-size: 0.95em; }
+  th { color: var(--muted); font-weight: bold; }
+  code { background: var(--bg); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--line); }
+</style>
+<script src="ADMIN-ACCOUNT-MANAGER.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="brand">▶ Private Media Player <span style="font-size: 0.6em; background: var(--accent); color: #101426; padding: 2px 8px; border-radius: 4px; vertical-align: middle; margin-left: 6px;">ADMIN</span></div>
+  <div class="muted">Account Manager</div>
+</header>
+
+<main>
+  <div class="panel">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+      <h2>User Account Manager</h2>
+      <a href="ADMIN-DASHBOARD.html" class="btn secondary sm">← Back to Dashboard</a>
+    </div>
+    <p class="muted">Create, edit, or remove user access keys from local security storage.</p>
+    
+    <form id="addUserForm" class="grid-form">
+      <div class="field">
+        <label for="newUserEmail">User Email</label>
+        <input id="newUserEmail" type="email" placeholder="example@domain.com" required>
+      </div>
+      <div class="field">
+        <label for="newUserPassword">User Password</label>
+        <input id="newUserPassword" type="password" placeholder="••••••••" required>
+      </div>
+      <div class="field">
+        <label>Account Role</label>
+        <div class="role-toggle-group">
+          <button type="button" class="role-btn active" data-role="user" onclick="selectRole('user')">User</button>
+          <button type="button" class="role-btn" data-role="admin" onclick="selectRole('admin')">Admin</button>
+        </div>
+        <input type="hidden" id="selectedRole" value="user">
+      </div>
+      <button type="submit" class="btn">Create Account</button>
+    </form>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Vault File</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="usersTableBody">
+          <tr><td colspan="4" class="muted">Loading accounts...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<script>
+  function selectRole(role) {
+    document.getElementById('selectedRole').value = role;
+    document.querySelectorAll('.role-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-role') === role);
+    });
+  }
+</script>
+</body>
+</html>

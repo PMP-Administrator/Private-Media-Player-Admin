@@ -1,0 +1,192 @@
+:root {
+  --bg: #0c1018;
+  --panel: #141b27;
+  --panel2: #1b2635;
+  --text: #eef3fc;
+  --muted: #9aabc2;
+  --line: #2a3749;
+  --accent: #FFB733;
+}
+
+* { 
+  box-sizing: border-box; 
+}
+
+body { 
+  margin: 0; 
+  background: var(--bg); 
+  color: var(--text); 
+  font: 15px/1.5 Arial, sans-serif; 
+}
+
+button, input, select { 
+  font: inherit; 
+}
+
+button { 
+  cursor: pointer; 
+}
+
+header { 
+  padding: 20px 6%; 
+  border-bottom: 1px solid var(--line); 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.brand { 
+  font-size: 22px; 
+  font-weight: bold; 
+}
+
+main { 
+  max-width: 500px; 
+  margin: 40px auto; 
+  padding: 0 20px; 
+}
+
+/* Dashboard & Hub Layouts */
+main.dashboard-layout { 
+  max-width: 900px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 20px; 
+}
+
+.panel { 
+  background: var(--panel); 
+  border: 1px solid var(--line); 
+  border-radius: 16px; 
+  padding: 25px; 
+}
+
+.field { 
+  margin: 18px 0; 
+}
+
+label { 
+  display: block; 
+  margin-bottom: 7px; 
+  font-weight: bold; 
+}
+
+input { 
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid var(--line); 
+  border-radius: 9px; 
+  background: var(--bg); 
+  color: var(--text); 
+}
+
+/* Primary & Secondary Buttons */
+.btn { 
+  padding: 12px 16px; 
+  border: 0; 
+  border-radius: 9px; 
+  background: var(--accent); 
+  color: #101426; 
+  font-weight: bold; 
+  width: 100%; 
+  text-decoration: none; 
+  display: inline-block; 
+  text-align: center; 
+}
+
+.btn.secondary { 
+  background: var(--panel2); 
+  color: var(--text); 
+  border: 1px solid var(--line); 
+}
+
+.btn.sm { 
+  padding: 6px 12px; 
+  font-size: 0.85em; 
+  width: auto; 
+}
+
+.notice { 
+  background: var(--panel2); 
+  padding: 14px; 
+  border-radius: 10px; 
+  color: var(--muted); 
+  margin-top: 15px; 
+}
+
+.muted { 
+  color: var(--muted); 
+}
+
+/* Admin Profile Panel Header */
+.profile-panel { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 18px 25px; 
+}
+
+.profile-info { 
+  display: flex; 
+  align-items: center; 
+  gap: 15px; 
+}
+
+.avatar { 
+  width: 44px; 
+  height: 44px; 
+  background: var(--accent); 
+  color: #101426; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-weight: bold; 
+  font-size: 18px; 
+}
+
+.badge { 
+  font-size: 0.75em; 
+  background: var(--panel2); 
+  color: var(--accent); 
+  border: 1px solid var(--line); 
+  padding: 2px 8px; 
+  border-radius: 4px; 
+  display: inline-block; 
+  margin-top: 4px; 
+}
+
+/* Hub Grid Cards & Counter Displays */
+.cards-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px; 
+}
+
+.card { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+}
+
+.stat-box { 
+  margin: 20px 0; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  background: var(--bg); 
+  padding: 15px; 
+  border-radius: 10px; 
+  border: 1px solid var(--line); 
+}
+
+.stat-number { 
+  font-size: 2.2em; 
+  font-weight: bold; 
+  color: var(--accent); 
+}
+
+.stat-label { 
+  color: var(--muted); 
+  font-size: 0.85em; 
+}

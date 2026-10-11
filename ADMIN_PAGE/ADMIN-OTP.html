@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Vaultplay Admin - Verification</title>
+  <style>
+    :root {
+      --bg: #0c1018;
+      --panel: #141b27;
+      --text: #eef3fc;
+      --muted: #9aabc2;
+      --line: #2a3749;
+      --accent: #FFB733;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 30px;
+      width: 100%;
+      max-width: 420px;
+    }
+    .field { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 8px; font-weight: bold; }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1.1em;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #101426;
+      font-weight: bold;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .muted { color: var(--muted); }
+  </style>
+  <script src="ADMIN-OTP-script.js"></script>
+</head>
+<body>
+  <div class="panel">
+    <h2>Admin PIN Verification</h2>
+    <p id="otpMessage" class="muted">Enter 6-digit administrator verification code</p>
+
+    <!-- Inline event interception guarantees no page refresh occurs -->
+    <form id="adminOtpForm" onsubmit="return handleAdminOtp(event)">
+      <div class="field">
+        <label for="otp">Verification Code</label>
+        <input id="otp" type="text" maxlength="6" pattern="[0-9]{6}" required autofocus autocomplete="off">
+      </div>
+      <button type="submit" id="submitBtn" class="btn">Verify & Proceed</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -4,7 +4,7 @@ const adminEmail = sessionStorage.getItem("admin_email");
 const isAuthenticated = sessionStorage.getItem("admin_authenticated");
 
 if (!isAuthenticated || !adminEmail) {
-  window.location.replace("ADMIN-SIGN-IN.html");
+  window.location.replace("index.html");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function logoutAdmin() {
   sessionStorage.clear();
-  window.location.replace("ADMIN-SIGN-IN.html");
+  window.location.replace("index.html");
 }
 
 async function loadCounts() {

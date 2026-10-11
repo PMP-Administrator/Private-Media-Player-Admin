@@ -3,7 +3,7 @@
 const adminEmail = sessionStorage.getItem("pending_admin_email");
 
 if (!adminEmail) {
-  window.location.replace("ADMIN-SIGN-IN.html");
+  window.location.replace("index.html");
 }
 
 document.addEventListener("DOMContentLoaded", () => {

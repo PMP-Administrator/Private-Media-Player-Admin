@@ -1,7 +1,7 @@
 "use strict";
 
 if (!sessionStorage.getItem("admin_authenticated")) {
-  window.location.href = "ADMIN-SIGN-IN.html";
+  window.location.href = "index.html";
 }
 
 document.addEventListener("DOMContentLoaded", loadVideos);

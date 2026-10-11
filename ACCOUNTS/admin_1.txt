@@ -1,0 +1,3 @@
+email=PMP.OTP.AUTH@gmail.com
+password=PMP_4DM1N_M4N4G3M3N7
+role=admin
